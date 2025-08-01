@@ -1,0 +1,98 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Obesity Prediction Form</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <div class="form-container">
+        <h2>Obesity Prediction Assessment</h2>
+        <form action="" method="post">
+            {% csrf_token %}
+
+            <label>Gender:</label>
+            <select name="Gender" required>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+            </select>
+
+            <label>Age:</label>
+            <input type="number" name="Age" step="0.1" required>
+
+            <label>Height (m):</label>
+            <input type="number" name="Height" step="0.01" required>
+
+            <label>Weight (kg):</label>
+            <input type="number" name="Weight" step="0.1" required>
+
+            <label>Family History with Overweight:</label>
+            <select name="family_history_with_overweight" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Eat high caloric food frequently (FAVC):</label>
+            <select name="FAVC" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Eat vegetables in meals (FCVC):</label>
+            <input type="number" name="FCVC" min="0" max="3" step="1" required>
+
+            <label>Main meals per day (NCP):</label>
+            <input type="number" name="NCP" step="0.1" required>
+
+            <label>Eat between meals (CAEC):</label>
+            <select name="CAEC" required>
+                <option value="no">No</option>
+                <option value="Sometimes">Sometimes</option>
+                <option value="Frequently">Frequently</option>
+                <option value="Always">Always</option>
+            </select>
+
+            <label>Smoke:</label>
+            <select name="SMOKE" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Water intake per day (CH2O):</label>
+            <input type="number" name="CH2O" step="0.1" required>
+
+            <label>Monitor calories (SCC):</label>
+            <select name="SCC" required>
+                <option value="yes">Yes</option>
+                <option value="no">No</option>
+            </select>
+
+            <label>Physical activity frequency (FAF):</label>
+            <input type="number" name="FAF" step="0.1" required>
+
+            <label>Time on tech devices daily (TUE):</label>
+            <input type="number" name="TUE" step="1" required>
+
+            <label>Alcohol consumption (CALC):</label>
+            <select name="CALC" required>
+                <option value="no">No</option>
+                <option value="Sometimes">Sometimes</option>
+                <option value="Frequently">Frequently</option>
+                <option value="Always">Always</option>
+            </select>
+
+            <label>Transport mode (MTRANS):</label>
+            <select name="MTRANS" required>
+                <option value="Public_Transportation">Public Transportation</option>
+                <option value="Automobile">Automobile</option>
+                <option value="Walking">Walking</option>
+                <option value="Motorbike">Motorbike</option>
+                <option value="Bike">Bike</option>
+            </select>
+
+            <button type="submit">Predict</button>
+        </form>
+    </div>
+</body>
+</html>

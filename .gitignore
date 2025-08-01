@@ -37,3 +37,6 @@ Thumbs.db
 /etc/letsencrypt/*
 /var/lib/letsencrypt/*
 *.pem
+
+log_reg_model.pkl
+rf_model.pkl
