@@ -116,17 +116,59 @@
         <button type="submit">Predict</button>
       </form>
 
+    
       {% if log_result and rf_result %}
-      <div class="result">
-        <h3>Prediction Results</h3>
-        <p>
-          <strong>Logistic Regression:</strong> {{ log_result }} ({{ log_proba}}%)
-        </p>
-        <p><strong>Random Forest:</strong> {{ rf_result }} ({{ rf_proba }}%)</p>
-      </div>
-      {% endif %} {% if log_result != rf_result %}
-      <p><strong>Perbedaan prediksi</strong></p>
-      {% endif %}
+        <div class="result">
+            <h3>Prediction Results</h3>
+            <p>
+                <strong>Logistic Regression:</strong>
+                {% if log_result == "Insufficient_Weight" %}
+                Underweight
+                {% elif log_result == "Normal_Weight" %}
+                Normal
+                {% elif log_result == "Overweight_Level_I" %}
+                Overweight I
+                {% elif log_result == "Overweight_Level_II" %}
+                Overweight II
+                {% elif log_result == "Obesity_Type_I" %}
+                Obesity I
+                {% elif log_result == "Obesity_Type_II" %}
+                Obesity II
+                {% elif log_result == "Obesity_Type_III" %}
+                Obesity III
+                {% else %}
+                {{ log_result }}
+                {% endif %}
+                ({{ log_proba }}%)
+            </p>
+
+            <p>
+                <strong>Random Forest:</strong>
+                {% if rf_result == "Insufficient_Weight" %}
+                Underweight
+                {% elif rf_result == "Normal_Weight" %}
+                Normal
+                {% elif rf_result == "Overweight_Level_I" %}
+                Overweight I
+                {% elif rf_result == "Overweight_Level_II" %}
+                Overweight II
+                {% elif rf_result == "Obesity_Type_I" %}
+                Obesity I
+                {% elif rf_result == "Obesity_Type_II" %}
+                Obesity II
+                {% elif rf_result == "Obesity_Type_III" %}
+                Obesity III
+                {% else %}
+                {{ rf_result }}
+                {% endif %}
+                ({{ rf_proba }}%)
+            </p>
+            </div>
+
+            {% if log_result != rf_result %}
+            <p><strong>There is a difference between the predictions of the two models.</strong></p>
+            {% endif %}
+        {% endif %}
     </div>
   </body>
 </html>
