@@ -40,3 +40,5 @@ Thumbs.db
 
 log_reg_model.pkl
 rf_model.pkl
+logistic_regression_model.pkl
+random_forest_model.pkl

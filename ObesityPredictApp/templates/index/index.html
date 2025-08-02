@@ -13,48 +13,50 @@
       <form action="" method="post">
         {% csrf_token %}
 
-        <label>What is your gender?</label>
+        <label>What is your gender? / Gender</label>
         <select name="Gender" required>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>
 
-        <label>What is your age?</label>
+        <label>What is your age? / Age</label>
         <input type="number" name="Age" step="0.1" required />
 
-        <label>What is your height? (in meters)</label>
+        <label>What is your height? / Height(in meters)</label>
         <input type="number" name="Height" step="0.01" required />
 
-        <label>What is your weight? (in kilograms)</label>
+        <label>What is your weight? / Weight(in kilograms)</label>
         <input type="number" name="Weight" step="0.1" required />
 
-        <label>Has a family member suffered or suffers from overweight?</label>
+        <label>Has a family member suffered or suffers from overweight? / family_history_with_overweight</label>
         <select name="family_history_with_overweight" required>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
 
-        <label>Do you eat high caloric food frequently?</label>
+        <label>Do you eat high caloric food frequently? / FAVC</label>
         <select name="FAVC" required>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
 
-        <label>Do you usually eat vegetables in your meals?</label>
+        <label>Do you usually eat vegetables in your meals? / FCVC</label>
+        {% comment %} <input type="number" name="FCVC" step="0.1" min="1" max="3" required /> {% endcomment %}
         <select name="FCVC" required>
           <option value="1">Never</option>
           <option value="2">Sometimes</option>
           <option value="3">Always</option>
         </select>
 
-        <label>How many main meals do you have daily?</label>
+        <label>How many main meals do you have daily? / NCP</label>
+        {% comment %} <input type="number" name="NCP" step="0.1" min="1" max="4" required /> {% endcomment %}
         <select name="NCP" required>
-          <option value="1.0">Between 1 y 2</option>
-          <option value="3.0">Three</option>
-          <option value="4.0">More than three</option>
+          <option value="1">Never</option>
+          <option value="3">Sometimes</option>
+          <option value="4">Always</option>
         </select>
 
-        <label>Do you eat any food between meals?</label>
+        <label>Do you eat any food between meals? / CAEC</label>
         <select name="CAEC" required>
           <option value="no">No</option>
           <option value="Sometimes">Sometimes</option>
@@ -62,41 +64,44 @@
           <option value="Always">Always</option>
         </select>
 
-        <label>Do you smoke?</label>
+        <label>Do you smoke? / SMOKE</label>
         <select name="SMOKE" required>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
 
-        <label>How much water do you drink daily?</label>
+        <label>How much water do you drink daily? / CH2O</label>
+        {% comment %} <input type="number" name="CH2O" step="0.1" min="1" max="3" required /> {% endcomment %}
         <select name="CH2O" required>
-          <option value="1.0">Less than a liter</option>
-          <option value="2.0">Between 1 and 2 L</option>
-          <option value="3.0">More than 2 L</option>
+          <option value="1">Less than a liter</option>
+          <option value="2">Between 1 and 2 L</option>
+          <option value="3">More than 2 L</option>
         </select>
 
-        <label>Do you monitor the calories you eat daily?</label>
+        <label>Do you monitor the calories you eat daily? / SCC</label>
         <select name="SCC" required>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
 
-        <label>How often do you have physical activity?</label>
+        <label>How often do you have physical activity? / FAF</label>
+        {% comment %} <input type="number" name="FAF" step="0.1" min="0" max="3" required /> {% endcomment %}
         <select name="FAF" required>
-          <option value="0.0">I do not have</option>
-          <option value="1.0">1 or 2 days</option>
-          <option value="3.0">2 or 4 days</option>
-          <option value="4.0">4 or 5 days</option>
+          <option value="0">I do not have</option>
+          <option value="1">1 or 2 days</option>
+          <option value="2">2 or 4 days</option>
+          <option value="3">4 or 5 days</option>
         </select>
 
-        <label>How much time do you use technological devices?</label>
+        <label>How much time do you use technological devices? / TUE</label>
+        {% comment %} <input type="number" name="TUE" step="0.1" min="0" max="2" required /> {% endcomment %}
         <select name="TUE" required>
-          <option value="1.0">0-2 hours</option>
-          <option value="2.0">3-5 hours</option>
-          <option value="3.0">More than 5 hours</option>
+          <option value="0">0-2 hours</option>
+          <option value="1">3-5 hours</option>
+          <option value="2">More than 5 hours</option>
         </select>
 
-        <label>How often do you drink alcohol?</label>
+        <label>How often do you drink alcohol? / CALC</label>
         <select name="CALC" required>
           <option value="no">I do not drink</option>
           <option value="Sometimes">Sometimes</option>
@@ -104,7 +109,7 @@
           <option value="Always">Always</option>
         </select>
 
-        <label>Which transportation do you usually use?</label>
+        <label>Which transportation do you usually use? / MTRANS</label>
         <select name="MTRANS" required>
           <option value="Automobile">Automobile</option>
           <option value="Motorbike">Motorbike</option>
@@ -116,7 +121,6 @@
         <button type="submit">Predict</button>
       </form>
 
-    
       {% if log_result and rf_result %}
         <div class="result">
             <h3>Prediction Results</h3>
@@ -163,12 +167,30 @@
                 {% endif %}
                 ({{ rf_proba }}%)
             </p>
-            </div>
+        </div>
 
-            {% if log_result != rf_result %}
-            <p><strong>There is a difference between the predictions of the two models.</strong></p>
-            {% endif %}
+        {% if proba_table %}
+        <h4>Class Probabilities</h4>
+        <table border="1" cellpadding="5">
+            <tr>
+            <th>Class</th>
+            <th>Logistic Regression (%)</th>
+            <th>Random Forest (%)</th>
+            </tr>
+            {% for row in proba_table %}
+            <tr>
+                <td>{{ row.0 }}</td>
+                <td>{{ row.1 }}</td>
+                <td>{{ row.2 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
         {% endif %}
+
+        {% if log_result != rf_result %}
+        <p><strong>There is a difference between the predictions of the two models.</strong></p>
+        {% endif %}
+      {% endif %}
     </div>
   </body>
 </html>
