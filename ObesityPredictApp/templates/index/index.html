@@ -13,40 +13,48 @@
       <form action="" method="post">
         {% csrf_token %}
 
-        <label>Gender:</label>
+        <label>What is your gender?</label>
         <select name="Gender" required>
           <option value="Male">Male</option>
           <option value="Female">Female</option>
         </select>
 
-        <label>Age:</label>
+        <label>What is your age?</label>
         <input type="number" name="Age" step="0.1" required />
 
-        <label>Height (m):</label>
+        <label>What is your height? (in meters)</label>
         <input type="number" name="Height" step="0.01" required />
 
-        <label>Weight (kg):</label>
+        <label>What is your weight? (in kilograms)</label>
         <input type="number" name="Weight" step="0.1" required />
 
-        <label>Family History with Overweight:</label>
+        <label>Has a family member suffered or suffers from overweight?</label>
         <select name="family_history_with_overweight" required>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
 
-        <label>Eat high caloric food frequently (FAVC):</label>
+        <label>Do you eat high caloric food frequently?</label>
         <select name="FAVC" required>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
 
-        <label>Eat vegetables in meals (FCVC):</label>
-        <input type="number" name="FCVC" min="0" max="3" step="1" required />
+        <label>Do you usually eat vegetables in your meals?</label>
+        <select name="FCVC" required>
+          <option value="1">Never</option>
+          <option value="2">Sometimes</option>
+          <option value="3">Always</option>
+        </select>
 
-        <label>Main meals per day (NCP):</label>
-        <input type="number" name="NCP" step="0.1" required />
+        <label>How many main meals do you have daily?</label>
+        <select name="NCP" required>
+          <option value="1.0">Between 1 y 2</option>
+          <option value="3.0">Three</option>
+          <option value="4.0">More than three</option>
+        </select>
 
-        <label>Eat between meals (CAEC):</label>
+        <label>Do you eat any food between meals?</label>
         <select name="CAEC" required>
           <option value="no">No</option>
           <option value="Sometimes">Sometimes</option>
@@ -54,42 +62,55 @@
           <option value="Always">Always</option>
         </select>
 
-        <label>Smoke:</label>
+        <label>Do you smoke?</label>
         <select name="SMOKE" required>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
 
-        <label>Water intake per day (CH2O):</label>
-        <input type="number" name="CH2O" step="0.1" required />
+        <label>How much water do you drink daily?</label>
+        <select name="CH2O" required>
+          <option value="1.0">Less than a liter</option>
+          <option value="2.0">Between 1 and 2 L</option>
+          <option value="3.0">More than 2 L</option>
+        </select>
 
-        <label>Monitor calories (SCC):</label>
+        <label>Do you monitor the calories you eat daily?</label>
         <select name="SCC" required>
           <option value="yes">Yes</option>
           <option value="no">No</option>
         </select>
 
-        <label>Physical activity frequency (FAF):</label>
-        <input type="number" name="FAF" step="0.1" required />
+        <label>How often do you have physical activity?</label>
+        <select name="FAF" required>
+          <option value="0.0">I do not have</option>
+          <option value="1.0">1 or 2 days</option>
+          <option value="3.0">2 or 4 days</option>
+          <option value="4.0">4 or 5 days</option>
+        </select>
 
-        <label>Time on tech devices daily (TUE):</label>
-        <input type="number" name="TUE" step="1" required />
+        <label>How much time do you use technological devices?</label>
+        <select name="TUE" required>
+          <option value="1.0">0-2 hours</option>
+          <option value="2.0">3-5 hours</option>
+          <option value="3.0">More than 5 hours</option>
+        </select>
 
-        <label>Alcohol consumption (CALC):</label>
+        <label>How often do you drink alcohol?</label>
         <select name="CALC" required>
-          <option value="no">No</option>
+          <option value="no">I do not drink</option>
           <option value="Sometimes">Sometimes</option>
           <option value="Frequently">Frequently</option>
           <option value="Always">Always</option>
         </select>
 
-        <label>Transport mode (MTRANS):</label>
+        <label>Which transportation do you usually use?</label>
         <select name="MTRANS" required>
-          <option value="Public_Transportation">Public Transportation</option>
           <option value="Automobile">Automobile</option>
-          <option value="Walking">Walking</option>
           <option value="Motorbike">Motorbike</option>
           <option value="Bike">Bike</option>
+          <option value="Public_Transportation">Public Transportation</option>
+          <option value="Walking">Walking</option>
         </select>
 
         <button type="submit">Predict</button>
