@@ -1,7 +1,7 @@
 # Obesity Levels Predict
 
 A machine learning project for multiclass classification to predict obesity levels based on physical condition and eating habits.  
-Developed by **Farhan Ramadhan** as part of the **SEMB Internship Assessment**.
+Developed by **Farhan Ramadhan**.
 
 ---
 
