@@ -40,6 +40,9 @@ Developed by **Farhan Ramadhan** as part of the **SEMB Internship Assessment**.
 git clone https://github.com/Hanhan-23/ObesityPredict.git
 cd obesity-levels-predict
 
+# Download Model files and .env
+https://drive.google.com/drive/folders/1oSyiBnwnWKwoCsMPNy5kzh5mdlxwyYxR?usp=sharing
+
 # Create virtual environment (optional)
 python -m venv venv
 source venv/bin/activate  # On Windows use: venv\Scripts\activate
