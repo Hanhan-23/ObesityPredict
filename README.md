@@ -37,7 +37,7 @@ Developed by **Farhan Ramadhan** as part of the **SEMB Internship Assessment**.
 
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/obesity-levels-predict.git
+git clone https://github.com/Hanhan-23/ObesityPredict.git
 cd obesity-levels-predict
 
 # Create virtual environment (optional)
